@@ -38,11 +38,15 @@ public class ChessboardPoint {
     }
 
     public boolean isValidX(int dx){
-        return (x + dx >= 0) & (x + dx <= 7);
+        if(x + dx >=0 && x + dx <= 7)
+            return true;
+        return false;
     }
 
     public boolean isValidY(int dy){
-        return (y + dy >= 0) & (y + dy <= 7);
+        if(y + dy >= 0 && y + dy <= 7)
+            return true;
+        return false;
     }
 
     public void setX(int x) {
