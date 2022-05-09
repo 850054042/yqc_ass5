@@ -51,7 +51,10 @@ public abstract class ChessComponent {
         if(Character.isUpperCase(chessComponent.name)){
             return Character.isLowerCase(name);
         }
-        return Character.isUpperCase(name);
+        if(Character.isLowerCase(chessComponent.name)){
+            return Character.isUpperCase(name);
+        }
+        return false;
     }
 
     /**

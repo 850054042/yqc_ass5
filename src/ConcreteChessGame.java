@@ -178,14 +178,14 @@ public class ConcreteChessGame implements ChessGame{
 
     @Override
     public boolean moveChess(int sourceX, int sourceY, int targetX, int targetY) {
-        boolean canMove = false;
-        if(getCanMovePoints(new ChessboardPoint(sourceX,sourceY)).contains(new ChessboardPoint(targetX,targetY)))
-            canMove = true;
-        if(canMove){
+        if(getCanMovePoints(new ChessboardPoint(sourceX,sourceY)).contains(new ChessboardPoint(targetX,targetY)) && currentPlayer == chessComponents[sourceX][sourceY].getChessColor()) {
+            currentPlayer = currentPlayer == ChessColor.BLACK ? ChessColor.WHITE : ChessColor.BLACK;
             chessComponents[targetX][targetY] = chessComponents[sourceX][sourceY];
             chessComponents[targetX][targetY].setX(targetX);
             chessComponents[targetX][targetY].setY(targetY);
             chessComponents[sourceX][sourceY] = new EmptySlotComponent(sourceX,sourceY);
+            chessComponents[sourceX][sourceY].name = '_';
+            chessComponents[sourceX][sourceY].setChessColor(ChessColor.NONE);
             return true;
         }
         return false;

@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class ChessboardPoint {
     private int x;
     private int y;
@@ -69,5 +71,18 @@ public class ChessboardPoint {
             return new ChessboardPoint(x + dx,y + dy);
         }
         return null;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ChessboardPoint that = (ChessboardPoint) o;
+        return x == that.x && y == that.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }

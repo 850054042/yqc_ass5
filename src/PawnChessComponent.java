@@ -8,6 +8,7 @@ public class PawnChessComponent extends ChessComponent{
         ChessComponent[][] chessComponents = super.getChessBoard();
         int x = super.getX();
         int y = super.getY();
+        ChessComponent chess = chessComponents[x][y];
         List<ChessboardPoint> chessboardPoints = new ArrayList<>();
         if(super.getChessColor() == ChessColor.BLACK){
             if(x == 1){
@@ -55,7 +56,6 @@ public class PawnChessComponent extends ChessComponent{
                 }
             }
         }
-        ChessComponent chess = chessComponents[x][y];
         List<ChessboardPoint> toDelete = new ArrayList<>();
         for(ChessboardPoint chessboardPoint : chessboardPoints){
             int targetX = chessboardPoint.getX();
